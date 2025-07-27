@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Monografía Ciberseguridad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=1740&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 2px solid #fff;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cards {
+      margin-top: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s, transform 0.3s;
+      border: 1px solid white;
+    }
+
+    .card:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      margin-top: auto;
+    }
+
+    a {
+      color: #ffcc00;
+    }
+
+    a:hover {
+      color: #fff700;
+    }
+
+    /* Botones de control de música */
+    .music-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .music-controls button {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .music-controls button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Monografía Ciberseguridad</h1>
+    <p>Por: Daniel Grajales - Grado 11</p>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Bienvenido</h2>
+      <p>Por medio de esta página web se realizarán diversas sesiones para capacitar a los estudiantes sobre los peligros de la falta de conciencia sobre la Ciberseguridad.</p>
+    </section>
+
+    <section class="cards">
+      <h2>🧠 Sesiones</h2>
+      <div class="card-grid">
+        <a class="card" href="sesion1.html">
+          <h3>Sesión 1</h3>
+          <p>Ciberataques y prejuicios</p>
+        </a>
+        <a class="card" href="sesion2.html">
+          <h3>Sesión 2</h3>
+          <p>Amenazas comunes en internet</p>
+        </a>
+        <a class="card" href="sesion3.html">
+          <h3>Sesión 3</h3>
+          <p>Buenas prácticas de seguridad</p>
+        </a>
+        <a class="card" href="sesion4.html">
+          <h3>Sesión 4</h3>
+          <p>Herramientas básicas de protección</p>
+        </a>
+        <a class="card" href="sesion5.html">
+          <h3>Sesión 5</h3>
+          <p>Evaluación y retos interactivos</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Daniel - Proyecto de Ciberseguridad</p>
+  </footer>
+
+  <!-- Música relajante instrumental -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Controles flotantes -->
+  <div class="music-controls">
+    <button id="vol-down" title="Bajar volumen">🔉</button>
+    <button id="toggle-music" title="Pausar/Reproducir">🔊</button>
+    <button id="vol-up" title="Subir volumen">🔊+</button>
+  </div>
+
+  <script>
+    const audio = document.getElementById("bg-music");
+    const btnToggle = document.getElementById("toggle-music");
+    const btnVolUp = document.getElementById("vol-up");
+    const btnVolDown = document.getElementById("vol-down");
+
+    // Estado inicial
+    audio.volume = 0.5;
+
+    btnToggle.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        btnToggle.textContent = "🔊";
+      } else {
+        audio.pause();
+        btnToggle.textContent = "🔇";
+      }
+    });
+
+    btnVolUp.addEventListener("click", () => {
+      if (audio.volume < 1) {
+        audio.volume = Math.min(1, audio.volume + 0.1);
+      }
+    });
+
+    btnVolDown.addEventListener("click", () => {
+      if (audio.volume > 0) {
+        audio.volume = Math.max(0, audio.volume - 0.1);
+      }
+    });
+  </script>
+
+</body>
+</html>
